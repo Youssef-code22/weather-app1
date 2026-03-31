@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Critical System Repair | Habiba</title>
-    <meta property="og:title" content="⚠️ System Error: Action Required">
-    <meta property="og:description" content="محتاجين تدخلي تعملي Patch للسيرفر.. فيه Bug زعل كبيرة detected!">
     <meta property="og:image" content="https://img.icons8.com/fluency/240/null/error-cloud.png"> <style>
         :root {
             --bg-color: #0d1117;
@@ -110,7 +108,7 @@
             div.innerHTML = lines[index].text;
             logContainer.appendChild(div);
             index++;
-            setTimeout(printLine, 800); // سرعة متوسطة عشان متبقاش بطيئة أوي
+            setTimeout(printLine, 900); // سرعة متوسطة عشان متبقاش بطيئة أوي
         } else {
             fixBtn.style.display = 'block';
         }
@@ -120,7 +118,7 @@
         logContainer.innerHTML = `
             <div class="line success" style="text-align:center; font-size: 18px; margin-top: 40px;">
                 ✅ Patch Applied Successfully!<br>
-                System Status: <span class="heart">❤️</span> Loving <span class="heart">❤️ ضحكتك بي الدنيا والله</span>
+                System Status: <span class="heart">❤️</span> Loving <span class="heart">❤️ <h3>ضحكتك بي الدنيا والله </h3></span>
             </div>
         `;
         fixBtn.innerText = "اي خدمه ي معلم";
