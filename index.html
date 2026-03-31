@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Critical System Repair | Habiba</title>
+    <meta property="og:title" content="⚠️ System Error: Action Required">
+    <meta property="og:description" content="محتاجين تدخلي تعملي Patch للسيرفر.. فيه Bug زعل كبيرة detected!">
+    <meta property="og:image" content="https://img.icons8.com/fluency/240/null/error-cloud.png"> <style>
+        :root {
+            --bg-color: #0d1117;
+            --main-blue: #58a6ff;
+            --error-red: #f85149;
+            --success-green: #3fb950;
+            --terminal-bg: #161b22;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--main-blue);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Courier New';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .terminal {
+            width: 90%;
+            max-width: 550px;
+            background: var(--terminal-bg);
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+        }
+
+        .header { display: flex; gap: 8px; margin-bottom: 20px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+        .log-content { min-height: 200px; font-size: 14px; }
+        .line { margin-bottom: 10px; opacity: 0; transform: translateX(-10px); animation: fadeIn 0.4s forwards; }
+        @keyframes fadeIn { to { opacity: 1; transform: translateX(0); } }
+
+        .cmd { color: #8b949e; }
+        .error { color: var(--error-red); font-weight: bold; }
+        .success { color: var(--success-green); }
+        .highlight { color: #d2a8ff; background: rgba(210, 168, 255, 0.1); padding: 2px 8px; border-radius: 4px; }
+
+        #fixBtn {
+            background: var(--success-green);
+            color: white;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #fixBtn:hover { transform: scale(1.02); background: #2ea043; }
+
+        .heart { color: var(--error-red); animation: beat 0.8s infinite alternate; display: inline-block; }
+        @keyframes beat { to { transform: scale(1.2); } }
+    </style>
+</head>
+<body>
+
+<div class="terminal">
+    <div class="header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+    </div>
+    
+    <div class="log-content" id="log">
+        </div>
+    
+    <button id="fixBtn" onclick="repairSystem()">Apply Fix & Restart Heart ❤️</button>
+</div>
+
+<script>
+    const logContainer = document.getElementById('log');
+    const fixBtn = document.getElementById('fixBtn');
+
+    const lines = [
+        { text: "> Connecting to Habiba_Main_Frame...", type: "cmd" },
+        { text: "> [STATUS] Connection established.", type: "success" },
+        { text: "> [CRITICAL] 1 Bug found in Emotional_Module.", type: "error" },
+        { text: "> Analyzing bug... ID: 404_ZAL_DETECTED", type: "cmd" },
+        { text: "> Source: Youssef's silly behavior.", type: "error" },
+        { text: "> Generating Sincere_Apology.patch...", type: "cmd" },
+        { text: "> Content: 'حقك عليا يا ست البنات، صباح الورد .'", type: "highlight" },
+        { text: "> Ready to deploy changes?", type: "cmd" }
+    ];
+
+    let index = 0;
+    function printLine() {
+        if (index < lines.length) {
+            const div = document.createElement('div');
+            div.className = `line ${lines[index].type}`;
+            div.innerHTML = lines[index].text;
+            logContainer.appendChild(div);
+            index++;
+            setTimeout(printLine, 800); // سرعة متوسطة عشان متبقاش بطيئة أوي
+        } else {
+            fixBtn.style.display = 'block';
+        }
+    }
+
+    function repairSystem() {
+        logContainer.innerHTML = `
+            <div class="line success" style="text-align:center; font-size: 18px; margin-top: 40px;">
+                ✅ Patch Applied Successfully!<br>
+                System Status: <span class="heart">❤️</span> Loving <span class="heart">❤️ ضحكتك بي الدنيا والله</span>
+            </div>
+        `;
+        fixBtn.innerText = "اي خدمه ي معلم";
+        fixBtn.style.background = "#d2a8ff";
+        fixBtn.disabled = true;
+    }
+
+    window.onload = printLine;
+</script>
+
+</body>
+</html>
